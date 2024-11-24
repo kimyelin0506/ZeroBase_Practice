@@ -1,11 +1,20 @@
 package me.kimyelin.Java_18_3.src;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Practice2 {
     public static ArrayList<Integer> solution(int[] nums) {
+        ArrayList<Integer> ls = new ArrayList<>();
 
-        return null;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if(nums[i] == nums[j]){
+                    ls.add(nums[i]);
+                }
+            }
+        }
+        return ls;
     }
 
     public static void main(String[] args) {

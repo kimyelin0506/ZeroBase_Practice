@@ -58,6 +58,5 @@ public class Main {
         char keyLast = 'z';
         System.out.println("keyLast = " + keyLast);
         System.out.println((int)keyFirst);  //아스키코드
-
     }
 }

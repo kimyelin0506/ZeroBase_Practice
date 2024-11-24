@@ -2,7 +2,20 @@ package me.kimyelin.Java_18_1.src;
 
 public class Practice5 {
     public static int solution(int[] height) {
-        return 0;
+        int res = 0;
+        for(int i=0; i<height.length; i++){
+            for (int j = 0; j < height.length; j++) {
+                if(i==j){
+                    continue;
+                }
+                int small = Math.min(height[i], height[j]);
+                int size = small*(Math.abs(i-j));
+                if(size > res){
+                    res = size;
+                }
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {

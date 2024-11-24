@@ -27,6 +27,17 @@ class Ambulance extends Car {
 public class Practice {
     public static void main(String[] args) {
         // Test code
+        Car c = new Car();
+        c.horn();
+        c = new FireTruck();
+        c.horn();
+        c = new Ambulance();
+        c.horn();
+        
+        Car[] cars = {new Car(), new FireTruck(), new Ambulance()};
+        for(Car item : cars){
+            item.horn();
+        }
 
     }
 }

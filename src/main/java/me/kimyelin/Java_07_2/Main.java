@@ -1,5 +1,7 @@
 package me.kimyelin.Java_07_2;// Java 프로그래밍 - 클래스와 객체_2
 
+import me.kimyelin.Java_07_2.car.Car2;
+
 class Car {
     String name;
     String type;
@@ -16,13 +18,26 @@ class Car {
     }
 
     // 오버로딩 구현
+    public void printCarInfo(String date){
+        this.printCarInfo();
+        System.out.println("date: "+date);
+    }
 
+    public void printCarInfo(int number){
+        this.printCarInfo();
+        System.out.println("number: "+number);
+    }
+
+    public void printCarInfo(String date, int number){
+        this.printCarInfo(date);
+        System.out.println("number: "+number);
+    }
 }
 
 
 class Car3 {
     // 스태틱 변수
-    String name;
+    static String name = "None";
     String type;
 
     Car3(String name, String type) {
@@ -37,6 +52,9 @@ class Car3 {
     }
 
     // 스태틱 메소드
+    public static void getName(){
+        System.out.println("Car name: "+name);
+    }
 
 }
 
@@ -49,18 +67,34 @@ public class Main {
 
 //      1. 오버로딩 사용
         System.out.println("=== 오버로딩 사용 ===");
+        myCar1.printCarInfo("2022");
+        System.out.println();
 
+        myCar1.printCarInfo(1234);
+        System.out.println();
 
+        myCar1.printCarInfo("2022",1234);
+        System.out.println();
 
 //      2. 접근 제어자
         System.out.println("=== 접근 제어자 ===");
-
-
+        Car2 myCar2 = new Car2("a","b","c","d");
+        System.out.println(myCar2.name1);
+//        System.out.println(myCar2.name2);
+//        System.out.println(myCar2.name3);
+//        System.out.println(myCar2.name4);
 
 //      3. Static
         System.out.println("=== Static ===");
+        Car3.getName();
 
-        
+        Car3 myCar3_1 = new Car3("a", "sedan");
+        Car3 myCar3_2 = new Car3("b", "suv");
+        Car3 myCar3_3 = new Car3("c", "rv");
+
+        myCar3_1.printCarInfo();
+        myCar3_2.printCarInfo();
+        myCar3_3.printCarInfo();
     }
 
 }

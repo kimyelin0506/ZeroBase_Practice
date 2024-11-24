@@ -19,7 +19,8 @@ public class Practice {
 
 
         // 스트림으로 구현
-
+        int sum2 = IntStream.rangeClosed(1,10).filter(n -> n%2==0).sum();
+        System.out.println("sum2 = " + sum2);
 
     }
 }

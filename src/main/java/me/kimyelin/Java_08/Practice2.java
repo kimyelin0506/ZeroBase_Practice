@@ -14,12 +14,20 @@ class Car {
 }
 
 class FireTruck extends Car {
+    @Override
     public void horn() {
+//        System.out.println("빵빵!");
+        super.horn();
+        System.out.println("위이잉!");
     }
 }
 
 class Ambulance extends Car {
+    @Override
     public void horn() {
+//        System.out.println("빵빵!");
+        super.horn();
+        System.out.println("삐뽀삐뽀!");
     }
 }
 
