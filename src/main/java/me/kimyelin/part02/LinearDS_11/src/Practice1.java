@@ -8,9 +8,25 @@ package me.kimyelin.part02.LinearDS_11.src;// Practice1
 // 출력 데이터: 1 -> 5 -> 2 -> 4 -> 3
 
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.stream.IntStream;
+
 public class Practice1 {
     public static void reorderData(int[] arr) {
+        Deque<Integer> deque = new ArrayDeque<>();
+        IntStream.range(0, arr.length).forEach(x -> deque.addLast(arr[x]));
+        int cnt = 0;
 
+        while(!deque.isEmpty()){
+            if(cnt % 2 != 0){
+                System.out.print(deque.pollLast()+" ");
+            }else{
+                System.out.print(deque.pollFirst()+" ");
+            }
+            cnt++;
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {

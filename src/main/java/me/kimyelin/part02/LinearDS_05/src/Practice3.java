@@ -9,16 +9,36 @@ package me.kimyelin.part02.LinearDS_05.src;// Practice3
 // (처음 위치는 1부터라고 가정)
 // 결과 연결 리스트: 1, 4, 3, 2, 5
 
-
-import me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList;
-
+/*혼자 해보기*/
 public class Practice3 {
-    public static me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList reverseList(me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList list, int left, int right) {
-        return null;
+    public static LinkedList reverseList(LinkedList list, int left, int right) {
+        Node cur1 = null;
+        Node pre1 = null;
+
+        cur1 = list.head;
+        for (int i = 0; i < left-1; i++) {
+            pre1 = cur1;
+            cur1 = cur1.next;
+        }
+
+        Node cur2 = cur1;
+        Node pre2 = pre1;
+        Node after = null;
+        for (int i = left; i <= right; i++) {
+            after = cur2.next;
+            cur2.next = pre2;
+            pre2 = cur2;
+            cur2 = after;
+        }
+
+        pre1.next = pre2;
+        cur1.next = after;
+
+        return list;
     }
     
     public static void main(String[] args) {
-        me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList linkedList = new me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList();
+        LinkedList linkedList = new LinkedList();
         linkedList.addData(1);
         linkedList.addData(2);
         linkedList.addData(3);
@@ -29,8 +49,9 @@ public class Practice3 {
         linkedList = reverseList(linkedList, 2, 4);
         linkedList.showData();
 
+        System.out.println();
 
-        me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList linkedList2 = new me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList();
+        LinkedList linkedList2 = new LinkedList();
         linkedList2.addData(1);
         linkedList2.addData(2);
         linkedList2.addData(3);

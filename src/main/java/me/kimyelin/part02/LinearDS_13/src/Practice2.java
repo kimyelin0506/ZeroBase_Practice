@@ -14,11 +14,26 @@ package me.kimyelin.part02.LinearDS_13.src;// Practice2
 // 출력: 0, 2
 
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class Practice2 {
     public static int[] solution(int[] numbers, int target) {
+        Hashtable<Integer, Integer> ht = new Hashtable<>();
+        IntStream.range(0, numbers.length).forEach(x -> ht.put(x, numbers[x]));
+        int[] res = new int[2];
 
+        for (int i = 0; i < ht.size(); i++) {
+            int n1 = ht.get(i);
+            for (int j = 0; j < ht.size(); j++) {
+                int n2 = ht.get(j);
+                if(n1 + n2 == target && n1 != n2){
+                    res[0] = Math.min(i, j);
+                    res[1] = Math.max(i, j);
+                    return res;
+                }
+            }
+        }
         return null;
     }
 

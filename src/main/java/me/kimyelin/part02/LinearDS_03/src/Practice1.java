@@ -10,7 +10,24 @@ package me.kimyelin.part02.LinearDS_03.src;// Practice1
 
 public class Practice1 {
     public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int sum1 = 0;
+        int sum2 = 0;
+        int cnt1 = 0;
+        int cnt2 = 0;
 
+        for (int i = 0; i < arr.length; i++) {
+            if(i%2 == 0){
+                sum1 += arr[i];
+                cnt1++;
+            }else{
+                sum2 += arr[i];
+                cnt2++;
+            }
+        }
+
+        System.out.println("짝수 평균: "+sum1/(double)cnt1);
+        System.out.println("홀수 평균: "+sum2/(double)cnt2);
     }
 
 }

@@ -17,21 +17,48 @@ import java.util.Stack;
 
 public class Practice4 {
 
-//    public static boolean stringCompare(String s1, String s2) {
-//    }
+    public static boolean stringCompare(String s1, String s2) {
+        Stack<String> stack1 = new Stack<>();
+        Stack<String> stack2 = new Stack<>();
+
+        for (int i = 0; i < s1.length(); i++) {
+            if(s1.charAt(i) == '#'){
+                stack1.pop();
+            }else{
+                stack1.push(String.valueOf(s1.charAt(i)));
+            }
+        }
+
+        for (int i = 0; i < s2.length(); i++) {
+            if(s2.charAt(i) == '#'){
+                stack2.pop();
+            }else{
+                stack2.push(String.valueOf(s2.charAt(i)));
+            }
+        }
+
+        while (!stack1.isEmpty() || !stack2.isEmpty()){
+            String n1 = stack1.pop();
+            String n2 = stack2.pop();
+            if(!n1.equals(n2)){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         // Test code
-//        String s1 = "tree";
-//        String s2 = "th#ree";
-//        System.out.println(stringCompare(s1, s2));
-//
-//        s1 = "ab#a";
-//        s2 = "aab#";
-//        System.out.println(stringCompare(s1, s2));
-//
-//        s1 = "wo#w";
-//        s2 = "ww#o";
-//        System.out.println(stringCompare(s1, s2));
+        String s1 = "tree";
+        String s2 = "th#ree";
+        System.out.println(stringCompare(s1, s2));
+
+        s1 = "ab#a";
+        s2 = "aab#";
+        System.out.println(stringCompare(s1, s2));
+
+        s1 = "wo#w";
+        s2 = "ww#o";
+        System.out.println(stringCompare(s1, s2));
     }
 }

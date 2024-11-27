@@ -1,7 +1,5 @@
 package me.kimyelin.part01.Java_02_2;// Java 프로그래밍 - 변수와 자료형_2
 
-import static me.kimyelin.Main.LINE;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -23,7 +21,7 @@ public class Main {
 
         long longNum = (long)Integer.MAX_VALUE+1;
         System.out.println(longNum);
-        LINE();
+
 //      1-2. 실수
         float floatNum = 1.23f;
         double doubleNum = 1.23;
@@ -41,7 +39,7 @@ public class Main {
         System.out.println("0b"+Integer.toBinaryString(numBase2));
         System.out.println("0"+Integer.toOctalString(numBase8));
         System.out.println("0x"+Integer.toHexString(numBase15));
-        LINE();
+
 
 //      2. 자료형 - 부울
         System.out.println("== 부울 ==");
@@ -49,7 +47,7 @@ public class Main {
         System.out.println("isPass = " + isPass);
         boolean isOk = false;
         System.out.println("isOk = " + isOk);
-        LINE();
+
 
 //      3. 자료형 - 문자
         System.out.println("== 문자 ==");

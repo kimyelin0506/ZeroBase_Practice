@@ -14,9 +14,34 @@ package me.kimyelin.part02.LinearDS_11.src;// Practice1
 // 결과: false
 
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.stream.IntStream;
+
 public class Practice2 {
     public static boolean checkPalindrome(String str) {
-        return false;
+        int len = str.length();
+        Deque<String> deque = new ArrayDeque<>();
+        IntStream.range(0,len).forEach(x->deque.addLast(String.valueOf(str.charAt(x))));
+
+        while(!deque.isEmpty()){
+            String front;
+            String rear;
+            if(deque.size() == 1){
+                front = deque.peek();
+                rear = deque.peek();
+                deque.poll();
+            }else{
+                front = deque.pollFirst();
+                rear = deque.pollLast();
+            }
+
+            if(!front.equals(rear)){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {

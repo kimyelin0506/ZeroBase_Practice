@@ -3,6 +3,9 @@ package me.kimyelin.part02.LinearDS_11.src;// Practice3
 // 기본 데크 구조에서 데크 공간이 full 일 때 데이터를 추가하는 경우,
 // 데크 공간을 2배 씩 늘려주는 코드를 작성하세요.
 
+import java.util.HashMap;
+import java.util.Map;
+
 class MyDeque2 {
     int[] arr;
     int front = 0;
@@ -21,13 +24,24 @@ class MyDeque2 {
     }
 
     public void increaseSize() {
+        int[] arrTmp = this.arr.clone();
+        this.arr = new int[this.arr.length * 2];
 
+        int start = (this.front + 1) % arrTmp.length;
+        int end = (this.rear + 1) % arrTmp.length;
+
+        int idx = 1;
+        for (int i = start; i != end; i = (i+1) % arrTmp.length) {
+            this.arr[idx++] = arrTmp[i];
+        }
+
+        this.front = 0;
+        this.rear = idx - 1;
     }
 
     public void addFirst(int data) {
         if (this.isFull()) {
-            System.out.println("Deque is full!");
-            return;
+            increaseSize();
         }
 
         this.arr[front] = data;
@@ -35,9 +49,11 @@ class MyDeque2 {
     }
 
     public void addLast(int data) {
+
+
+
         if (this.isFull()) {
-            System.out.println("Deque is full!");
-            return;
+            increaseSize();
         }
 
         this.rear = (this.rear + 1) % this.arr.length;

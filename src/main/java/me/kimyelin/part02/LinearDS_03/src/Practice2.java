@@ -8,6 +8,19 @@ package me.kimyelin.part02.LinearDS_03.src;// Practice2
 
 public class Practice2 {
     public static void main(String[] args) {
+        int target = 100;
+        int[] arr = {1, 1, 100, 1, 1, 1, 100};
+        int idx = -1;
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == target){
+                idx = i;
+            }
+        }
+
+        if(idx > -1){
+            System.out.println("result: "+idx);
+        }
 
     }
 }

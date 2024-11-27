@@ -97,7 +97,28 @@ class LinkedList {
 
 public class Practice1 {
     public static LinkedList removeDup(LinkedList listBefore) {
-        return null;
+        LinkedList listAfter = new LinkedList();
+
+        Node tmp = listBefore.head;
+        while(tmp != null){
+            Node tmpAfter = listAfter.head;
+            boolean isSame = false;
+
+            while (tmpAfter != null){
+                if(tmpAfter.data == tmp.data){
+                    isSame = true;
+                    break;
+                }
+                tmpAfter = tmpAfter.next;
+            }
+
+            if(!isSame){
+                listAfter.addData(tmp.data);
+            }
+
+            tmp = tmp.next;
+        }
+        return listAfter;
     }
 
     public static void main(String[] args) {

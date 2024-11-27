@@ -14,16 +14,37 @@ package me.kimyelin.part02.LinearDS_05.src;// Practice2
 // 결과: false
 
 
-import me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList;
-
 public class Practice2 {
-    public static boolean checkPalindrome(me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList list) {
-        return false;
+    public static boolean checkPalindrome(LinkedList list) {
+        Node left = list.head;
+        Node right = left;
+        int cnt = 0;
+
+        // 전체 개수 구하기
+        while(left != null){
+            cnt++;
+            left = left.next;
+        }
+        left = list.head;
+
+        //right = cnt-left
+        for (int i = 0; i < cnt-1; i++) {
+            // right 설정
+            for (int j = 0; j < cnt-i-1; j++) {
+                right = right.next;
+            }
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = list.head;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
         // Test code
-        me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList linkedList = new me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList();
+        LinkedList linkedList = new LinkedList();
         linkedList.addData(1);
         linkedList.addData(3);
         linkedList.addData(5);
@@ -31,14 +52,14 @@ public class Practice2 {
         linkedList.addData(1);
         System.out.println(checkPalindrome(linkedList));
 
-        me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList linkedList2 = new me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList();
+        LinkedList linkedList2 = new LinkedList();
         linkedList2.addData(3);
         linkedList2.addData(5);
         linkedList2.addData(5);
         linkedList2.addData(3);
         System.out.println(checkPalindrome(linkedList2));
 
-        me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList linkedList3 = new me.kimyelin.part02.Practice.LinearDS_12.src.LinkedList();
+        LinkedList linkedList3 = new LinkedList();
         linkedList3.addData(1);
         linkedList3.addData(3);
         linkedList3.addData(5);

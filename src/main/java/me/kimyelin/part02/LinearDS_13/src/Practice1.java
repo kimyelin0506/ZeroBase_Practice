@@ -8,9 +8,24 @@ package me.kimyelin.part02.LinearDS_13.src;// Practice1
 // 배열2: 1, 2, 3, 4, 5
 // 출력: True, False, True, False, True
 
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.stream.IntStream;
+
 public class Practice1 {
     public static void solution(int[] arr1, int[] arr2) {
+        Hashtable<Integer, Integer> ht = new Hashtable<>();
+        IntStream.range(0,arr1.length).forEach(x -> ht.put(arr1[x], arr1[x]));
 
+        for (int i = 0; i < arr2.length; i++) {
+            if(ht.containsKey(arr2[i])){
+                System.out.print("true ");
+            }else{
+                System.out.print("false ");
+            }
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {

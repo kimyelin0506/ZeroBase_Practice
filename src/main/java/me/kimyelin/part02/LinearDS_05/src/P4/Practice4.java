@@ -6,6 +6,9 @@ package me.kimyelin.part02.LinearDS_05.src.P4;
 // 관리 규칙은 다음과 같다.
 // 각 문자열의 첫 글자가 같은 것끼리 같은 연결 리스트로 관리하기
 
+/*스스로 풀어보기*/
+
+import java.util.HashSet;
 
 class Node {
     String data;
@@ -103,6 +106,32 @@ class LinkedList {
 public class Practice4 {
 
     public static void dataCollect(String[] data) {
+        // 첫글자 솎아내기 -> set은 중복을 허용하지 않음
+        HashSet<Character> set = new HashSet<>();
+
+        for(String item : data){
+            set.add(item.toCharArray()[0]);
+        }
+        System.out.println(set);
+
+        Character[] arr = set.toArray(new Character[0]);
+        LinkedList[] ls = new LinkedList[set.size()];  //공간을 마련
+        for (int i = 0; i < ls.length; i++) {
+            ls[i] = new LinkedList(null, arr[i]);
+        }
+
+        for(String item : data){
+            for(LinkedList list : ls){
+                if(list.alphabet == item.toCharArray()[0]){
+                    list.addData(item);
+                }
+            }
+        }
+
+        for(LinkedList list : ls){
+            System.out.print(list.alphabet+" : ");
+            list.showData();
+        }
 
     }
 
